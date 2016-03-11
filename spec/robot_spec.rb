@@ -63,5 +63,24 @@ describe Robot do
 
   end
 
+  context 'starting with orientation west' do
+    let(:robot) { Robot.new(:west) }
+
+    it 'has an orientation west' do
+      expect(robot.orientation).to eq :west
+    end
+
+    it 'has the orientation north when asked to turn right' do
+      robot.turnRight
+      expect(robot.orientation).to eq :north
+    end
+
+    it 'has the orientation south when asked to turn left' do
+      robot.turnLeft
+      expect(robot.orientation).to eq :south
+    end
+
+  end
+
 
 end
