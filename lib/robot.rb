@@ -1,8 +1,13 @@
 class Robot
-  attr_reader :orientation
+  attr_reader :orientation, :position
 
-  def initialize(orientation)
+  def initialize(orientation, position)
     @orientation = orientation
+    @position = position
+  end
+
+  def updatePosition(coordinate)
+    @position = coordinate
   end
 
   def turnRight
