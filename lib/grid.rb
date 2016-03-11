@@ -7,7 +7,9 @@ class Grid
   end
 
   def within_boundary?(coordinates)
-    coordinates[0] >= 0 && coordinates[1] >= 0 && coordinates[0] < @xBoundary && coordinates[1] < @yBoundary
+    xCoordinate = coordinates[0]
+    yCoordinate = coordinates[1]
+    xCoordinate >= 0 && yCoordinate >= 0 && xCoordinate < @xBoundary && yCoordinate < @yBoundary
   end
 
 end
