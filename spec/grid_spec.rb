@@ -1,5 +1,6 @@
 require './lib/grid'
 require './lib/coordinate'
+require './lib/robot'
 
 describe Grid do
 
@@ -34,6 +35,72 @@ describe Grid do
 
     it 'considers [-1,-1] to be out of boundary' do
       expect(grid.within_boundary?(Coordinate.new(-1,-1))).to eq false
+    end
+
+    context 'moving forward a robot placed in 1,1' do
+
+      let(:coordinate) {Coordinate.new(1,1)}
+
+      it 'moves to 1,2 if robot is facing north' do
+        robot = Robot.new(:north, coordinate)
+        grid.moveRobotForward(robot);
+        expect(robot.position.x).to be 1
+        expect(robot.position.y).to be 2
+      end
+
+      it 'moves to 2,1 if robot is facing east' do
+        robot = Robot.new(:east, coordinate)
+        grid.moveRobotForward(robot);
+        expect(robot.position.x).to be 2
+        expect(robot.position.y).to be 1
+      end
+
+      it 'moves to 1,0 if robot is facing south' do
+        robot = Robot.new(:south, coordinate)
+        grid.moveRobotForward(robot);
+        expect(robot.position.x).to be 1
+        expect(robot.position.y).to be 0
+      end
+
+      it 'moves to 0,1 if robot is facing west' do
+        robot = Robot.new(:west, coordinate)
+        grid.moveRobotForward(robot);
+        expect(robot.position.x).to be 0
+        expect(robot.position.y).to be 1
+      end
+
+    end
+
+    context 'moving forward a robot placed in 0,0' do
+
+      let(:coordinate) {Coordinate.new(0,0)}
+
+      it 'moves to 0,1 if robot is facing north' do
+        robot = Robot.new(:north, coordinate)
+        results = grid.moveRobotForward(robot);
+        expect(results.position.x).to be 0
+        expect(results.position.y).to be 1
+      end
+
+      it 'moves to 1,0 if robot is facing east' do
+        robot = Robot.new(:east, coordinate)
+        results = grid.moveRobotForward(robot);
+        expect(results.position.x).to be 1
+        expect(results.position.y).to be 0
+      end
+
+      it 'DIES if robot is facing south (off grid at 0,-1)' do
+        robot = Robot.new(:south, coordinate)
+        results = grid.moveRobotForward(robot);
+        expect(results).to be :dead
+      end
+
+      it 'DIES if robot is facing west (off grid at -1,0)' do
+        robot = Robot.new(:west, coordinate)
+        results = grid.moveRobotForward(robot);
+        expect(results).to be :dead
+      end
+
     end
 
   end

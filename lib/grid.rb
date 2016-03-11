@@ -28,4 +28,23 @@ class Grid
     Coordinate.new(coordinates.x - 1, coordinates.y)
   end
 
+  def moveRobotForward(robot)
+    newPosition = case robot.orientation
+      when :north
+        northOf(robot.position)
+      when :east
+        eastOf(robot.position)
+      when :south
+        southOf(robot.position)
+      when :west
+        westOf(robot.position)
+      else
+        puts "error"
+    end
+
+    return :dead unless within_boundary?(newPosition)
+    robot.updatePosition(newPosition)
+    robot
+  end
+
 end
