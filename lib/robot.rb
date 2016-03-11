@@ -1,16 +1,30 @@
 class Robot
   attr_reader :orientation
 
-  def initialize
-    @orientation = :north
+  def initialize(orientation)
+    @orientation = orientation
   end
 
   def turnRight
-    @orientation = :east
+    case @orientation
+      when :north
+        @orientation = :east
+      when :east
+        @orientation = :south
+      else
+        puts "orientation not recognised"
+    end
   end
 
   def turnLeft
-    @orientation = :west
+    case @orientation
+      when :north
+        @orientation = :west
+      when :east
+        @orientation = :north
+      else
+        puts "orientation not recognised"
+    end
   end
 
 end
