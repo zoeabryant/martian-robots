@@ -11,6 +11,8 @@ class Robot
         @orientation = :east
       when :east
         @orientation = :south
+      when :south
+        @orientation = :west
       else
         puts "orientation not recognised"
     end
@@ -22,6 +24,8 @@ class Robot
         @orientation = :west
       when :east
         @orientation = :north
+      when :south
+        @orientation = :east
       else
         puts "orientation not recognised"
     end
