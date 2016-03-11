@@ -1,5 +1,9 @@
 ## Martian Robots
 
+1. [Guide to installing Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+
+2. In your command line
+
 to run tests:
 ```
 bundle install
@@ -17,7 +21,7 @@ and see the beautiful error when it can't take commands!
 * You can create a grid
 * You can create a robot
 
-#### What doesn't do (yet)
+#### What it doesn't do (yet)
 * take commands in a string format "RFRFRFRF"
 * take any commands through command line interface
 * record dead robots
@@ -101,7 +105,8 @@ core done. ish. maybe. here goes with tying it together
 
 ##### 02:30
 no not yet not done why is this if statment not working
-retro: it was the test that was wrong.
+
+retrospectively: it was the test that was wrong.
 
 ##### 03:00
 ok.
