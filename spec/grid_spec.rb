@@ -5,15 +5,22 @@ require './lib/robot'
 describe Grid do
 
   # [x,y]
+  let(:grid){Grid.new(5,3)}
 
-  let(:grid) {Grid.new}
+  context 'can set x,y boundary' do
 
-  it 'has an x boundary' do
-    expect(grid.xBoundary).to eq 5
-  end
+    it 'has an 5,3 boundary' do
+      grid = Grid.new(5,3)
+      expect(grid.xBoundary).to eq 5
+      expect(grid.yBoundary).to eq 3
+    end
 
-  it 'has an y boundary' do
-    expect(grid.yBoundary).to eq 3
+    it 'has an 2,1 boundary' do
+      grid = Grid.new(2,1)
+      expect(grid.xBoundary).to eq 2
+      expect(grid.yBoundary).to eq 1
+    end
+
   end
 
   context 'with a boundary of 5, 3' do

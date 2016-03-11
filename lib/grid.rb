@@ -3,9 +3,9 @@ class Grid
 
   # [x,y]
 
-  def initialize()
-    @xBoundary = 5
-    @yBoundary = 3
+  def initialize(xBoundary, yBoundary)
+    @xBoundary = xBoundary
+    @yBoundary = yBoundary
   end
 
   def within_boundary?(coordinates)
